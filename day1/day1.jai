@@ -17,7 +17,7 @@ main :: () {
     print("input.txt has % bytes.\n", file_data.count);
 
     print("------------------\n");
-    // print("Solution A: %\n", solution_a(file_data));
+    print("Solution A: %\n", solution_a(file_data));
     print("------------------\n");
     print("Solution B: %\n", solution_b(file_data));
 
