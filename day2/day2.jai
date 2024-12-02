@@ -14,8 +14,8 @@ main :: () {
 
     print("input.txt has % bytes.\n", file_data.count);
 
-    // print("------------------\n");
-    // print("Part 1: %\n", part_one(file_data));
+    print("------------------\n");
+    print("Part 1: %\n", part_one(file_data));
     print("------------------\n");
     print("Part 2: %\n", part_two(file_data));
     print("------------------\n");
@@ -34,6 +34,8 @@ part_one :: (input: string) -> int {
 
         level_strings := split(line, " ");
         levels: [..]int;
+        defer free(levels.data);
+        defer free(level_strings.data);
         for * level_strings {
             array_add(*levels, parse_int(it));
         }
@@ -63,10 +65,10 @@ part_one :: (input: string) -> int {
         }
 
         if is_safe {
-            print("is safe\n");
+            // print("is safe\n");
             result += 1;
         } else {
-            print("unsafe\n");
+            // print("unsafe\n");
         }
     }
 
@@ -82,6 +84,8 @@ part_two :: (input: string) -> int {
 
         level_strings := split(line, " ");
         levels: [..]int;
+        defer free(levels.data);
+        defer free(level_strings.data);
         for * level_strings {
             array_add(*levels, parse_int(it));
         }
@@ -96,10 +100,10 @@ part_two :: (input: string) -> int {
         }
 
         if errors == 0 {
-            print("% is safe.\n", levels);
+            // print("% is safe.\n", levels);
             result += 1;
         } else {
-            print("% is unsafe with % errors.\n", levels, errors);
+            // print("% is unsafe with % errors.\n", levels, errors);
         }
     }
 
